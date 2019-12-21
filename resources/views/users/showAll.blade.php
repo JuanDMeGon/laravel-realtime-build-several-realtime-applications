@@ -36,4 +36,26 @@
             });
         });
 </script>
+
+<script>
+    Echo.channel('users')
+        .listen('UserCreated', (e) => {
+            const usersElement = document.getElementById('users');
+
+            let element = document.createElement('li');
+
+            element.setAttribute('id', e.user.id);
+            element.innerText = e.user.name;
+
+            usersElement.appendChild(element);
+        })
+        .listen('UserUpdated', (e) => {
+            const element = document.getElementById(e.user.id);
+            element.innerText = e.user.name;
+        })
+        .listen('UserDeleted', (e) => {
+            const element = document.getElementById(e.user.id);
+            element.parentNode.removeChild(element);
+        });
+</script>
 @endpush
