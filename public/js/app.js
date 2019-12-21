@@ -46868,7 +46868,7 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-Echo.channel('notifications').listen('UserSessionChanged', function (e) {
+Echo["private"]('notifications').listen('UserSessionChanged', function (e) {
   var notificationElement = document.getElementById('notification');
   notificationElement.innerText = e.message;
   notificationElement.classList.remove('invisible');
