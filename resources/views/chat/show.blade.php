@@ -46,8 +46,6 @@
                                 class="list-unstyled overflow-auto text-info"
                                 style="height: 45vh"
                             >
-                                <li>Test1</li>
-                                <li>Test2</li>
                             </ul>
                         </div>
                     </div>
@@ -60,5 +58,30 @@
 
 @push('scripts')
 <script>
+    const usersElement = document.getElementById('users');
+
+    Echo.join('chat')
+        .here((users) => {
+            users.forEach((user, index) => {
+                let element = document.createElement('li');
+
+                element.setAttribute('id', user.id);
+                element.innerText = user.name;
+
+                usersElement.appendChild(element);
+            });
+        })
+        .joining((user) => {
+            let element = document.createElement('li');
+
+            element.setAttribute('id', user.id);
+            element.innerText = user.name;
+
+            usersElement.appendChild(element);
+        })
+        .leaving((user) => {
+            const element = document.getElementById(user.id);
+            element.parentNode.removeChild(element);
+        });
 </script>
 @endpush
