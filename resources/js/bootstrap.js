@@ -38,7 +38,7 @@ window.Echo = new Echo({
     key: process.env.MIX_PUSHER_APP_KEY,
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
     wsHost: 'ws.supersecuredomain.com',
-    wsPort: 80,
-    encrypted: false,
+    wsPort: 443,
+    encrypted: true,
     disableStats: true
 });

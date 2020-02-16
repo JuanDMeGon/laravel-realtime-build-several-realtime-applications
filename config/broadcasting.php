@@ -38,8 +38,9 @@ return [
             'options' => [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
                 'host' => 'ws.supersecuredomain.com',
-                'port' => 80,
+                'port' => 443,
                 'useTLS' => true,
+                'scheme' => 'https',
             ],
         ],
 

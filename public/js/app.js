@@ -46924,8 +46924,8 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   key: "public-key-123",
   cluster: "us2",
   wsHost: 'ws.supersecuredomain.com',
-  wsPort: 80,
-  encrypted: false,
+  wsPort: 443,
+  encrypted: true,
   disableStats: true
 });
 
